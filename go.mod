@@ -1,4 +1,4 @@
-module quiz_protos
+module github.com/proger567/quiz_protos
 
 go 1.23.6
 
