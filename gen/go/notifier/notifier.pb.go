@@ -4,7 +4,7 @@
 // 	protoc        v3.12.4
 // source: notifier/notifier.proto
 
-package proto
+package notifier
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -24,7 +24,8 @@ const (
 type NotifyRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Room          string                 `protobuf:"bytes,1,opt,name=room,proto3" json:"room,omitempty"`
-	Data          string                 `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	Event         string                 `protobuf:"bytes,2,opt,name=event,proto3" json:"event,omitempty"`
+	Data          string                 `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -62,6 +63,13 @@ func (*NotifyRequest) Descriptor() ([]byte, []int) {
 func (x *NotifyRequest) GetRoom() string {
 	if x != nil {
 		return x.Room
+	}
+	return ""
+}
+
+func (x *NotifyRequest) GetEvent() string {
+	if x != nil {
+		return x.Event
 	}
 	return ""
 }
@@ -113,13 +121,14 @@ var File_notifier_notifier_proto protoreflect.FileDescriptor
 
 const file_notifier_notifier_proto_rawDesc = "" +
 	"\n" +
-	"\x17notifier/notifier.proto\x12\x12internal.rpc.proto\"7\n" +
+	"\x17notifier/notifier.proto\x12\x12internal.rpc.proto\"M\n" +
 	"\rNotifyRequest\x12\x12\n" +
-	"\x04room\x18\x01 \x01(\tR\x04room\x12\x12\n" +
-	"\x04data\x18\x02 \x01(\tR\x04data\"\x10\n" +
+	"\x04room\x18\x01 \x01(\tR\x04room\x12\x14\n" +
+	"\x05event\x18\x02 \x01(\tR\x05event\x12\x12\n" +
+	"\x04data\x18\x03 \x01(\tR\x04data\"\x10\n" +
 	"\x0eNotifyResponse2[\n" +
 	"\bNotifier\x12O\n" +
-	"\x06Notify\x12!.internal.rpc.proto.NotifyRequest\x1a\".internal.rpc.proto.NotifyResponseB\x1fZ\x1dinternal/transport/grpc/protob\x06proto3"
+	"\x06Notify\x12!.internal.rpc.proto.NotifyRequest\x1a\".internal.rpc.proto.NotifyResponseB\x11Z\x0fgen/go/notifierb\x06proto3"
 
 var (
 	file_notifier_notifier_proto_rawDescOnce sync.Once

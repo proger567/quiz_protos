@@ -2,15 +2,12 @@ syntax = "proto3";
 
 package internal.rpc.proto;
 
-option go_package = "internal/transport/grpc/proto";
-
-
-//to generate:
-//protoc.exe --go_out=. --go_opt=paths=source_relative  --go-grpc_out=. --go-grpc_opt=paths=source_relative  internal/transport/rpc/proto/notifier.proto
+option go_package = "gen/go/notifier";
 
 message NotifyRequest {
   string room = 1;
-  string data = 2;
+  string event = 2;
+  string data = 3;
 }
 
 message NotifyResponse {

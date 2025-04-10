@@ -4,7 +4,7 @@
 // - protoc             v3.12.4
 // source: notifier/notifier.proto
 
-package proto
+package notifier
 
 import (
 	context "context"
